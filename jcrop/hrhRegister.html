@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--兼容国产浏览器的高速模式-->
+    <meta name="renderer" content="webkit">
+    <!--响应式必备头部-->
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <title>华人号-注册界面</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header_hrtt.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <style>
+    html {
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to right, #24D79D 5%, #147BD2 95%);
+    }
+
+    body {
+        width: 100%;
+        height: 100%;
+        background: url("images/bg_right.png") no-repeat center right;
+        background-size: auto 100%;
+    }
+
+
+    #section {
+        background: url("images/bg_left.png") no-repeat center left;
+        background-size: auto 100%;
+    }
+
+    .login_box .saveAndResetPwd .checked {
+        background: url(images/checked_blue.png) no-repeat center left;
+        background-size: 18px 18px;
+    }
+
+    #section .copyright {
+        float: none;
+        position: absolute;
+        display: block;
+        bottom: 76px;
+        width: 100%;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 0;
+        color: #fff;
+        font-size: 14px;
+    }
+
+    #canvas {
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .submit-btn {
+        background: #fff;
+        border-radius: 4px;
+        height: 36px;
+        text-align: center;
+        line-height: 36px;
+        cursor: pointer
+    }
+
+    .yzm {
+        margin-top: 12px;
+        background: #fff;
+    }
+
+    #loginForm .check_code {
+        margin: 0;
+        border: none;
+        width: 178px;
+    }
+
+    .yzm .getCode {
+        color: #0083c7;
+        border-left: 1px solid #f0f0f0;
+        padding-left: 5px;
+        cursor: pointer;
+        display: inline-block;
+        width: 85px;
+        text-align: center;
+    }
+    .login_box .check_code_pic{
+        margin-top: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="header_nav" style="position:fixed;top:0;left:0;">
+        <div class="content">
+            <div class='nav_logo fl'>
+                <img class='fl' src='images/hrtt_logo.png' alt="" />
+                <h1 class='fl'>华人头条</h1>
+            </div>
+        </div>
+    </div>
+    <div id="section" style="height:100%;margin-top:0px;">
+        <div class="content" style="position: relative;height:100%;position: relative;z-index: 10;">
+            <div class='login_box'>
+                <form id="loginForm" action="" method="post" onsubmit="return login()">
+                    <div class="import_box login_username">
+                        <div style="float: left;"><span class='zoneCode' style="width:33px;background:none;line-height: 35px;"></span></div>
+                        <div style="float: right;height: 36px">
+                            <select name="zone" id="zone" class="select2-master" style="font-size: 16px;color: #879399;position: relative;height: 33px;width:145px;outline-color: transparent;background: white;" onchange="pickAreaCode()">
+                                <option value="968">阿曼</option>
+                                <option value="20">埃及</option>
+                                <option value="853">澳门</option>
+                                <option value="244">安哥拉</option>
+                                <option value="355">阿尔巴尼亚</option>
+                                <option value="213">阿尔及利亚</option>
+                                <option value="376">安道尔共和国</option>
+                                <option value="43">奥地利</option>
+                                <option value="372">爱沙尼亚</option>
+                                <option value="353">爱尔兰</option>
+                                <option value="1264">安圭拉岛</option>
+                                <option value="251">埃塞俄比亚</option>
+                                <option value="54">阿根廷</option>
+                                <option value="247">阿森松</option>
+                                <option value="61">澳大利亚</option>
+                                <option value="994">阿塞拜疆</option>
+                                <option value="93">阿富汗</option>
+                                <option value="1268">安提瓜和巴布达</option>
+                                <option value="971">阿拉伯联合酋长国</option>
+                                <option value="229">贝宁</option>
+                                <option value="501">伯利兹</option>
+                                <option value="55">巴西</option>
+                                <option value="507">巴拿马</option>
+                                <option value="48">波兰</option>
+                                <option value="1242">巴哈马</option>
+                                <option value="973">巴林</option>
+                                <option value="375">白俄罗斯</option>
+                                <option value="32">比利时</option>
+                                <option value="591">玻利维亚</option>
+                                <option value="257">布隆迪</option>
+                                <option value="354">冰岛</option>
+                                <option value="1246">巴巴多斯</option>
+                                <option value="267">博茨瓦纳</option>
+                                <option value="359">保加利亚</option>
+                                <option value="92">巴基斯坦</option>
+                                <option value="595">巴拉圭</option>
+                                <option value="1441">百慕大群岛</option>
+                                <option value="1787">波多黎各</option>
+                                <option value="226">布基纳法索</option>
+                                <option value="675">巴布亚新几内亚</option>
+                                <option value="850">朝鲜</option>
+                                <option value="228">多哥</option>
+                                <option value="45">丹麦</option>
+                                <option value="49">德国</option>
+                                <option value="1890">多米尼加共和国</option>
+                                <option value="684">东萨摩亚(美)</option>
+                                <option value="7">俄罗斯</option>
+                                <option value="593">厄瓜多尔</option>
+                                <option value="679">斐济</option>
+                                <option value="33">法国</option>
+                                <option value="358">芬兰</option>
+                                <option value="63">菲律宾</option>
+                                <option value="594">法属圭亚那</option>
+                                <option value="689">法属玻利尼西亚</option>
+                                <option value="53">古巴</option>
+                                <option value="1671">关岛</option>
+                                <option value="242">刚果</option>
+                                <option value="220">冈比亚</option>
+                                <option value="592">圭亚那</option>
+                                <option value="995">格鲁吉亚</option>
+                                <option value="1809">格林纳达</option>
+                                <option value="57">哥伦比亚</option>
+                                <option value="506">哥斯达黎加</option>
+                                <option value="509">海地</option>
+                                <option value="82">韩国</option>
+                                <option value="504">洪都拉斯</option>
+                                <option value="327">哈萨克斯坦</option>
+                                <option value="31">荷兰</option>
+                                <option value="599">荷属安的列斯</option>
+                                <option value="241">加蓬</option>
+                                <option value="233">加纳</option>
+                                <option value="1">加拿大</option>
+                                <option value="224">几内亚</option>
+                                <option value="253">吉布提</option>
+                                <option value="263">津巴布韦</option>
+                                <option value="331">吉尔吉斯坦</option>
+                                <option value="420">捷克</option>
+                                <option value="855">柬埔寨</option>
+                                <option value="254">肯尼亚</option>
+                                <option value="974">卡塔尔</option>
+                                <option value="965">科威特</option>
+                                <option value="237">喀麦隆</option>
+                                <option value="682">库克群岛</option>
+                                <option value="1345">开曼群岛</option>
+                                <option value="225">科特迪瓦</option>
+                                <option value="856">老挝</option>
+                                <option value="218">利比亚</option>
+                                <option value="371">拉脱维亚</option>
+                                <option value="961">黎巴嫩</option>
+                                <option value="266">莱索托</option>
+                                <option value="231">利比里亚</option>
+                                <option value="262">留尼旺</option>
+                                <option value="40">罗马尼亚</option>
+                                <option value="370">立陶宛</option>
+                                <option value="352">卢森堡</option>
+                                <option value="423">列支敦士登</option>
+                                <option value="223">马里</option>
+                                <option value="51">秘鲁</option>
+                                <option value="95">缅甸</option>
+                                <option value="356">马耳他</option>
+                                <option value="265">马拉维</option>
+                                <option value="52">墨西哥</option>
+                                <option value="377">摩纳哥</option>
+                                <option value="212">摩洛哥</option>
+                                <option value="60">马来西亚</option>
+                                <option value="960">马尔代夫</option>
+                                <option value="976">蒙古</option>
+                                <option value="230">毛里求斯</option>
+                                <option value="880">孟加拉国</option>
+                                <option value="261">马达加斯加</option>
+                                <option value="1670">马里亚那群岛</option>
+                                <option value="596">马提尼克</option>
+                                <option value="258">莫桑比克</option>
+                                <option value="1664">蒙特塞拉特岛</option>
+                                <option value="373">摩尔多瓦</option>
+                                <option value="1">美国</option>
+                                <option value="674">瑙鲁</option>
+                                <option value="977">尼泊尔</option>
+                                <option value="227">尼日尔</option>
+                                <option value="47">挪威</option>
+                                <option value="264">纳米比亚</option>
+                                <option value="234">尼日利亚</option>
+                                <option value="505">尼加拉瓜</option>
+                                <option value="381">南斯拉夫</option>
+                                <option value="27">南非</option>
+                                <option value="351">葡萄牙</option>
+                                <option value="81">日本</option>
+                                <option value="46">瑞典</option>
+                                <option value="41">瑞士</option>
+                                <option value="249">苏丹</option>
+                                <option value="357">塞浦路斯</option>
+                                <option value="252">索马里</option>
+                                <option value="221">塞内加尔</option>
+                                <option value="421">斯洛伐克</option>
+                                <option value="386">斯洛文尼亚</option>
+                                <option value="1758">圣卢西亚</option>
+                                <option value="597">苏里南</option>
+                                <option value="94">斯里兰卡</option>
+                                <option value="268">斯威士兰</option>
+                                <option value="378">圣马力诺</option>
+                                <option value="248">塞舌尔</option>
+                                <option value="677">所罗门群岛</option>
+                                <option value="1784">圣文森特</option>
+                                <option value="503">萨尔瓦多</option>
+                                <option value="1758">圣卢西亚</option>
+                                <option value="966">沙特阿拉伯</option>
+                                <option value="232">塞拉利昂</option>
+                                <option value="1784">圣文森特岛</option>
+                                <option value="239">圣多美和普林西比</option>
+                                <option value="676">汤加</option>
+                                <option value="886">台湾省</option>
+                                <option value="90">土耳其</option>
+                                <option value="216">突尼斯</option>
+                                <option value="255">坦桑尼亚</option>
+                                <option value="66">泰国</option>
+                                <option value="992">塔吉克斯坦</option>
+                                <option value="993">土库曼斯坦</option>
+                                <option value="1809">特立尼达和多巴哥</option>
+                                <option value="673">文莱</option>
+                                <option value="256">乌干达</option>
+                                <option value="380">乌克兰</option>
+                                <option value="598">乌拉圭</option>
+                                <option value="502">危地马拉</option>
+                                <option value="58">委内瑞拉</option>
+                                <option value="233">乌兹别克斯坦</option>
+                                <option value="34">西班牙</option>
+                                <option value="963">叙利亚</option>
+                                <option value="30">希腊</option>
+                                <option value="36">匈牙利</option>
+                                <option value="852">香港</option>
+                                <option value="65">新加坡</option>
+                                <option value="64">新西兰</option>
+                                <option value="685">西萨摩亚</option>
+                                <option value="98">伊朗</option>
+                                <option value="964">伊拉克</option>
+                                <option value="91">印度</option>
+                                <option value="39">意大利</option>
+                                <option value="967">也门</option>
+                                <option value="972">以色列</option>
+                                <option value="962">约旦</option>
+                                <option value="374">亚美尼亚</option>
+                                <option value="1876">牙买加</option>
+                                <option value="84">越南</option>
+                                <option value="62">印度尼西亚</option>
+                                <option value="44">英国</option>
+                                <option value="235">乍得</option>
+                                <option value="56">智利</option>
+                                <option value="86" selected="selected">中国</option>
+                                <option value="243">扎伊尔</option>
+                                <option value="260">赞比亚</option>
+                                <option value="350">直布罗陀</option>
+                                <option value="236">中非共和国</option>
+                            </select>
+                        </div>
+                    </div>
+                    <input class="import_box login_username" name="account" id="account" value='' type="text" placeholder="手机号" required/>
+                    <div class="yzm">
+                        <input class="import_box check_code" name="authCode" id="authCode" type="text" placeholder="验证码" required/>
+                        <span class="getCode" id="getCode">获取验证码</span>
+                    </div>
+                    <input class="import_box" name='pwd' id="pwd" type="password" placeholder="密码" required/>
+                    <div class="yzm">
+                        <input class="import_box check_code" name="authCode" id="authCode" type="text" placeholder="验证码" required="">
+                        <img class="check_code_pic" style="cursor: pointer;height: 36px;" src="images/hrtt_logo.png" onclick="showimg(this)">
+                    </div>
+                    <div class="saveAndResetPwd">
+                        <label class="checked" style="margin-bottom: 20px">用户勾选即代表同意<a href="agreeMent.html" style="text-decoration: none">《用户注册协议》</a></label>
+                    </div>
+
+                    <div class="submit-btn">注册</div>
+                </form>
+            </div>
+            <canvas id="canvas" width="1000" height="800" ;>
+            </canvas>
+        </div>
+        <div class="copyright">
+            福建可比信息科技有限公司&nbsp;&nbsp;&nbsp;©版权所有&nbsp;&nbsp;&nbsp;ICP许可证号&nbsp;&nbsp;&nbsp;闽ICP备09051535号
+        </div>
+    </div>
+    <script>
+    /*本函数用来判断是不是ie*/
+    function isIe() {
+        var strs = navigator.userAgent;
+        var num = strs.indexOf("MSIE"); /*先判断是不是ie*/
+        if (num != -1) {
+            num = parseFloat(strs.substr(30, 5));
+            if (num < 10) {
+                var div = $("<div>该浏览器版本太低，会影响页面使用效果，请使用高版本浏览器</div>");
+                div.css({
+                    "position": "fixed",
+                    "top": "0",
+                    "left": "0",
+                    "right": "0",
+                    "margin": "0 auto",
+                    "width": "500px",
+                    "height": "50px",
+                    "lineHeight": "50px",
+                    "textAlign": "center",
+                    "backgroundColor": "rgba(255,255,255,.8)",
+                    "border-bottom-left-radius": "10px",
+                    "border-bottom-right-radius": "10px"
+                });
+                div.appendTo($("body"));
+                console.log("该浏览器版本太低，会影响页面使用效果，请使用高版本浏览器");
+            }
+        }
+    }
+    // 获取验证码倒计时
+    var n = 60;
+    $("#getCode").click(function(event) {
+        var text = $(this).text();
+        if (text != '获取验证码') {
+            return
+        } else {
+            $(this).text(60 + 'S');
+            var t = setInterval(numCount, 1000)
+
+            function numCount() {
+                if (n > 1) {
+                    n = n - 1;
+                    $("#getCode").text(n + 'S');
+                } else {
+                    clearInterval(t);
+                    n = 60
+                    $("#getCode").text('获取验证码');
+                    return
+                }
+            }
+        }
+    });
+    isIe();
+    </script>
+    <script>
+    var loginMsg = {
+        username: '',
+        userpwd: '',
+        savepwd: true
+    };
+    /*输入用户名*/
+    function handleUserNameChange(e) {
+        var userval = e.target.value;
+        loginMsg.username = userval;
+    }
+    $(".login_box [type=text]").on("input", function(e) { handleUserNameChange(e); });
+    /*输入密码*/
+    function handleUserPwdChange(e) {
+        var pwdval = e.target.value;
+        loginMsg.userpwd = pwdval;
+    }
+    $(".login_box [type=password]").on("input", function(e) { handleUserPwdChange(e); });
+    /*记住密码的事件*/
+    function handleSaveChange(e) {
+        var target = e.target;
+        if (loginMsg.savepwd) {
+            loginMsg.savepwd = false;
+            $(target).removeClass("checked");
+            $('#savePwd').val('0');
+        } else {
+            loginMsg.savepwd = true;
+            $(target).addClass("checked");
+            $('#savePwd').val('1');
+        }
+    }
+    $(".saveAndResetPwd .checked").on("click", function(e) { handleSaveChange(e); });
+    /*提示用户手机端注册*/
+    //         function handlePopupClick(){//入住时的提示
+    //                 console.log("请在手机端入住");
+    //                 alert("请在手机端入住");
+    //         }
+    //         $(".registerBtn").on("click",function(){handlePopupClick();});
+    /*表单提交事件*/
+    function handleFormSubmit(e) { //入住时的提示
+        e.preventDefault();
+    }
+    $("#loginForm").on("submit", function(e) { handleFormSubmit(e) });
+
+    /*canvas画布*/
+    var cvs = {
+        context: null,
+        init: function() {
+            this.context = document.getElementById("canvas").getContext("2d");
+        }
+    }
+    var coor = {
+        x1: 440, //1
+        y1: 55,
+        r1: 30,
+
+        x2: 200, //2
+        y2: 190,
+        r2: 15,
+
+        x3: 90, //3
+        y3: 260,
+        r3: 15,
+
+        x4: 255, //4
+        y4: 360,
+        r4: 15,
+
+        x5: 195, //5
+        y5: 410,
+        r5: 21,
+
+        x6: 110, //6
+        y6: 515,
+        r6: 7.5,
+
+        x7: 205, //7
+        y7: 545,
+        r7: 22,
+
+        x8: 540, //8
+        y8: 245,
+        r8: 15,
+
+        x9: 430, //9
+        y9: 460,
+        r9: 25,
+
+        xa: 395, //10
+        ya: 555,
+        ra: 15,
+
+        xb: 690, //11
+        yb: 190,
+        rb: 16,
+
+        xc: 680, //12
+        yc: 270,
+        rc: 16,
+
+
+        xe: 635, //13
+        ye: 440,
+        re: 15,
+
+        xf: 820, //14
+        yf: 230,
+        rf: 30,
+
+        xg: 870, //15
+        yg: 415,
+        rg: 16,
+
+        xh: 785, //16
+        yh: 620,
+        rh: 13,
+
+
+        xj: 600, //17
+        yj: 620,
+        rj: 26,
+    }
+
+    var xy1 = 0.5,
+        xy2 = 0.5,
+        xy3 = 0.5,
+        xy4 = 0.5,
+        xy5 = 0.5,
+        xy6 = 0.5,
+        xy7 = 0.5,
+        xy8 = 0.5,
+        xy9 = 0.5,
+        xya = 0.5,
+        xyb = 0.5,
+        xyc = 0.5,
+        xye = 0.5,
+        xyf = 0.5,
+        xyg = 0.5,
+        xyh = 0.5,
+        xyj = 0.5;
+
+    cvs.init();
+
+    function CreateBall(x, y, r, start, s) {
+        cvs.context.save();
+        cvs.context.beginPath();
+        cvs.context.arc(x, y, r, start, s);
+        cvs.context.globalAlpha = .6;
+        cvs.context.fillStyle = "#fff";
+        cvs.context.fill();
+        cvs.context.closePath();
+        cvs.context.restore();
+    }
+
+    function lines(a, b, c, d) {
+        cvs.context.save();
+        cvs.context.beginPath();
+        cvs.context.moveTo(a, b);
+        cvs.context.lineTo(c, d);
+        cvs.context.strokeStyle = "#ffffff";
+        cvs.context.globalAlpha = .2;
+        cvs.context.stroke();
+        cvs.context.closePath();
+        cvs.context.restore();
+    }
+
+    function Sports() {
+        cvs.context.clearRect(0, 0, 1000, 800);
+        lines(coor.x1, coor.y1, coor.x2, coor.y2);
+        lines(coor.x1, coor.y1, coor.x8, coor.y8);
+        lines(coor.x1, coor.y1, coor.x9, coor.y9);
+        lines(coor.x1, coor.y1, coor.xb, coor.yb);
+        lines(coor.x2, coor.y2, coor.x3, coor.y3);
+        lines(coor.x2, coor.y2, coor.x8, coor.y8);
+        lines(coor.x2, coor.y2, coor.x4, coor.y4);
+        lines(coor.x2, coor.y2, coor.x9, coor.y9);
+        lines(coor.x3, coor.y3, coor.x4, coor.y4);
+        lines(coor.x3, coor.y3, coor.x5, coor.y5);
+        lines(coor.x9, coor.y9, coor.x4, coor.y4);
+        lines(coor.x5, coor.y5, coor.x7, coor.y7);
+        lines(coor.x5, coor.y5, coor.x6, coor.y6);
+        lines(coor.x5, coor.y5, coor.xa, coor.ya);
+        lines(coor.x7, coor.y7, coor.x6, coor.y6);
+        lines(coor.x7, coor.y7, coor.x9, coor.y9);
+        lines(coor.x8, coor.y8, coor.x9, coor.y9);
+        lines(coor.x8, coor.y8, coor.xb, coor.yb);
+        lines(coor.x8, coor.y8, coor.xj, coor.yj);
+        lines(coor.x8, coor.y8, coor.xc, coor.yc);
+        lines(coor.x9, coor.y9, coor.xa, coor.ya);
+        lines(coor.x9, coor.y9, coor.xe, coor.ye);
+        lines(coor.xb, coor.yb, coor.xc, coor.yc);
+        lines(coor.xb, coor.yb, coor.xf, coor.yf);
+        lines(coor.xc, coor.yc, coor.xe, coor.ye);
+        lines(coor.xc, coor.yc, coor.xf, coor.yf);
+        lines(coor.xe, coor.ye, coor.xf, coor.yf);
+        lines(coor.xe, coor.ye, coor.xj, coor.yj);
+        lines(coor.xg, coor.yg, coor.xf, coor.yf);
+        lines(coor.xh, coor.yh, coor.xf, coor.yf);
+        lines(coor.xg, coor.yg, coor.xh, coor.yh);
+        lines(coor.xg, coor.yg, coor.xj, coor.yj);
+        lines(coor.x5, coor.y5, coor.x4, coor.y4);
+        lines(coor.x9, coor.y9, coor.xj, coor.yj);
+
+        CreateBall(coor.x1, coor.y1, coor.r1, 0, Math.PI * 2);
+        CreateBall(coor.x2, coor.y2, coor.r2, 0, Math.PI * 2);
+        CreateBall(coor.x3, coor.y3, coor.r3, 0, Math.PI * 2);
+        CreateBall(coor.x4, coor.y4, coor.r4, 0, Math.PI * 2);
+        CreateBall(coor.x5, coor.y5, coor.r5, 0, Math.PI * 2);
+        CreateBall(coor.x6, coor.y6, coor.r6, 0, Math.PI * 2);
+        CreateBall(coor.x7, coor.y7, coor.r7, 0, Math.PI * 2);
+        CreateBall(coor.x8, coor.y8, coor.r8, 0, Math.PI * 2);
+        CreateBall(coor.x9, coor.y9, coor.r9, 0, Math.PI * 2);
+        CreateBall(coor.xa, coor.ya, coor.ra, 0, Math.PI * 2);
+        CreateBall(coor.xb, coor.yb, coor.rb, 0, Math.PI * 2);
+        CreateBall(coor.xc, coor.yc, coor.rc, 0, Math.PI * 2);
+        CreateBall(coor.xf, coor.yf, coor.rf, 0, Math.PI * 2);
+        CreateBall(coor.xg, coor.yg, coor.rg, 0, Math.PI * 2);
+        CreateBall(coor.xh, coor.yh, coor.rh, 0, Math.PI * 2);
+        CreateBall(coor.xe, coor.ye, coor.re, 0, Math.PI * 2);
+        CreateBall(coor.xj, coor.yj, coor.rj, 0, Math.PI * 2);
+
+        if (coor.x1 > 450) {
+            xy1 = -0.5;
+        } else if (coor.x1 < 300) {
+            xy1 = 0.5;
+        }
+        coor.x1 += xy1;
+
+        if (coor.xe > 1000) {
+            xye = -5;
+        } else if (coor.xe < 400) {
+            xye = 12;
+        }
+        coor.xe += xy1;
+
+        if (coor.y2 > 200) {
+            xy2 = -0.5;
+        } else if (coor.y2 < 100) {
+            xy2 = 0.5;
+        }
+        coor.y2 += xy2;
+        coor.x2 += xy2;
+
+        if (coor.y3 > 400) {
+            xy3 = -0.5;
+        } else if (coor.y3 < 250) {
+            xy3 = 0.5;
+        }
+        coor.y3 += xy3;
+
+        if (coor.x4 > 350) {
+            xy4 = -0.5;
+        } else if (coor.x4 < 240) {
+            xy4 = 0.5;
+        }
+        coor.y4 -= xy4;
+        coor.x4 += xy4;
+
+
+        if (coor.x5 > 300) {
+            xy5 = -0.5;
+        } else if (coor.x5 < 150) {
+            xy5 = 0.5;
+        }
+        coor.x5 += xy5;
+
+        if (coor.y6 > 535) {
+            xy6 = -0.5;
+        } else if (coor.y6 < 450) {
+            xy6 = 0.5;
+        }
+        coor.y6 += xy6;
+
+        if (coor.x7 < 100) {
+            xy7 = 0.5;
+        } else if (coor.x7 > 300) {
+            xy7 = -0.5;
+        }
+        coor.x7 += xy7;
+
+        if (coor.y8 < 100) {
+            xy8 = 0.5;
+        } else if (coor.y8 > 260) {
+            xy8 = -0.5;
+        }
+        coor.y8 += xy8;
+
+        if (coor.y9 < 350) {
+            xy9 = 0.5;
+        } else if (coor.y9 > 700) {
+            xy9 = -0.5;
+        }
+        coor.y9 += xy9;
+
+        if (coor.ya < 550) {
+            xya = 0.5;
+        } else if (coor.ya > 600) {
+            xya = -0.5;
+        }
+        coor.ya += xya;
+        coor.xa += xya;
+
+        if (coor.yb < 100) {
+            xyb = 0.5;
+        } else if (coor.yb > 200) {
+            xyb = -0.5;
+        }
+        coor.yb += xyb;
+        coor.xb -= xyb;
+
+        if (coor.ye < 150) {
+            xye = 0.5;
+        } else if (coor.ye > 300) {
+            xye = -0.5;
+        }
+        coor.ye += xye;
+
+        if (coor.yc < 250) {
+            xyc = 0.5;
+        } else if (coor.yc > 400) {
+            xyc = -0.5;
+        }
+        coor.yc += xyc;
+
+        if (coor.yf > 300) {
+            xyf = -0.5;
+        } else if (coor.yf < 150) {
+            xyf = 0.5;
+        }
+        coor.yf += xyf;
+
+        if (coor.xg < 550) {
+            xyg = 0.5;
+        } else if (coor.xg > 890) {
+            xyg = -0.5;
+        }
+        coor.xg += xyg;
+
+        if (coor.yh < 550) {
+            xyh = 0.5;
+        } else if (coor.yh > 650) {
+            xyh = -0.5;
+        }
+        coor.yh += xyh;
+        coor.xh += xyh;
+
+        if (coor.xj < 550) {
+            xyj = 0.5;
+        } else if (coor.xj > 800) {
+            xyj = -0.5;
+        }
+        coor.xj += xyj;
+
+        setTimeout(Sports, 50)
+    }
+    Sports();
+    </script>
+    <script>
+    /**以下为后端编写js**/
+    $(function() {
+        pickAreaCode();
+
+        var savePwd = $('#savePwd').val();
+        if ("1" == savePwd) {
+            loginMsg.savepwd = true;
+            //          $(".savePwd").addClass("checked");
+            $(".saveAndResetPwd .checked").addClass("checked");
+            $('#pwd').val("savePwd");
+        } else {
+            var savePwd = getCookie('savePwd');
+            if ("1" == savePwd) {
+                $('#pwd').val("savePwd");
+            } else {
+                loginMsg.savepwd = false;
+                $(".saveAndResetPwd .checked").addClass("checked");
+                //              $(".savePwd").removeClass("checked");
+                $(".saveAndResetPwd .checked").removeClass("checked");
+            }
+        }
+    })
+
+    function pickAreaCode() {
+        var zone = $('#zone').val();
+        if (zone) {
+            $('.zoneCode').html('+' + zone);
+            var date = new Date();
+            date.setTime(date.getTime() + 1000 * 60 * 60 * 24 * 365); //设置date为当前时间+30分
+            document.cookie = "zone=" + zone + "; expires=" + date.toGMTString();
+        } else {
+            $('.zoneCode').html('');
+        }
+    }
+
+    function showimg(img) {
+        img.src = '/login/randomCode.jsp?tmpDate=' + new Date();
+    }
+
+    function login() {
+        var formId = "#loginForm";
+        var actionUrl = "/toutiao/member/login.do";
+        $.ajax({
+            type: "POST",
+            url: actionUrl,
+            dataType: "json",
+            data: $(formId).serialize(), // 将对应ID的form表单数据序列化，实现这个表单数据提交
+            async: false,
+            error: function(request) {
+                tipMsg("网络异常。");
+            },
+            success: function(data) {
+                console.log('loginSuc');
+                if (data.code == '200') {
+                    window.location.href = '/toutiao/index.do';
+                } else {
+                    $('.check_code_pic').attr('src', '/login/randomCode.jsp?t=' + new Date());
+                    $('#authCode').val('');
+                    var msg = data.msg;
+                    if (msg.indexOf("密码") > -1) {
+                        $('#pwd').val('');
+                    }
+                    tipMsg(data.msg);
+                }
+            }
+        })
+        return false;
+    }
+
+    function getCookie(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if (arr = document.cookie.match(reg))
+            return unescape(arr[2]);
+        else
+            return null;
+    }
+    </script>
+</body>
+
+</html>

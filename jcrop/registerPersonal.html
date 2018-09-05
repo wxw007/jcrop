@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>华人号注册</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/top.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="jcrop/jquery.Jcrop.min.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- 顶部信息S -->
+        <div class="top-box">
+            <div class="top-bar">
+                <div class="logo-box">
+                    <img src="images/logo.png" alt="">
+                    <span>华人号</span>
+                </div>
+                <div class="user-info">
+                    <span>华人号用户</span>
+                    <span class="img-box">
+                        <img class="avatar" src="images/avatar.png" alt="">
+                        <img class="icon" src="images/nav-icon.png" alt="">
+                    </span>
+                    <div class="login-out">退出登录</div>
+                </div>
+            </div>
+        </div>
+        <!-- 顶部信息E -->
+        <div class="content-box">
+            <!-- 当前步骤S -->
+            <div class="top">
+                <div class="step-box">
+                    <div class="step bor">
+                        <img src="images/n3.png" alt="">
+                        <br>
+                        <span class="green">选择账号类型</span>
+                    </div>
+                    <div class="line"></div>
+                    <div class="step">
+                        <img src="images/n1.png" alt="">
+                        <br>
+                        <span class="gray">填写账号信息</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 当前步骤E -->
+            <!-- 表单区域S -->
+            <div class="form-content">
+                <div class="form-item">
+                    <div class="left i">华人号头像</div>
+                    <div class="right">
+                        <div class="img-box"><img src="images/default.png" alt=""></div>
+                        <div class="btn-wrap">
+                            <div class="img-upload-btn" id="avatarUpLoad"><img src="images/add.png" alt="">上传头像
+                            </div>
+                            <div class="tips">图片要求清晰，且图片大小不超过2M</div>
+                        </div>
+                    </div>
+                    <!-- 头像裁剪S -->
+                    <div class="avatar-wrap">
+                        <div class="avatar-box">
+                            <div class="top-text">头像设置</div>
+                            <div class="avatar-content">
+                                <label for="avatarImgInput" class="avatar-upload">+选择图片</label>
+                                <input type="file" id="avatarImgInput" accept="images/*">
+                                <img class="avatar-img" id="avatarImg" src="" alt="">
+                            </div>
+                            <div class="avatar-btn-group">
+                                <div class="avatar-btn avatar-cancle">取消</div>
+                                <div class="avatar-btn avatar-submit" id="avatarSubmit">确定</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 头像裁剪E -->
+                </div>
+                <div class="form-item">
+                    <div class="left i">华人号名称</div>
+                    <div class="right">
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="left">华人号介绍</div>
+                    <div class="right">
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="left">&nbsp;</div>
+                    <div class="right">
+                        <div class="title"><span>用户资料</span></div>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="left i">有效证件名称</div>
+                    <div class="right">
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="left i">有效证件号码</div>
+                    <div class="right">
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="left i">有效证件照片</div>
+                    <div class="right">
+                        <div class="img-box"><img src="images/default.png" alt=""></div>
+                        <div class="btn-wrap">
+                            <div class="img-upload-btn"><img src="images/add.png" alt="">上传照片
+                            </div>
+                            <div class="tips">手持有效证件拍照，证件号码必须清晰可识别，大小不超过5M</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="left">联系邮箱</div>
+                    <div class="right">
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="left i">联系手机号</div>
+                    <div class="right">
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="left">所在地</div>
+                    <div class="right">
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="left">备注</div>
+                    <div class="right">
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="left">辅助材料</div>
+                    <div class="right">
+                        <div class="btn-wrap2">
+                            <div class="img-upload-btn"><img src="images/add.png" alt="">上传照片
+                            </div>
+                            <div class="tips">非必填！您的个人网址、组织企业代码、资料截图等</div>
+                            <div class="img-list">
+                                <!-- 图片循环单元 s ↓↓↓↓↓↓ -->
+                                <div class="img-list-item">
+                                    <img src="images/list-item.png" alt="">
+                                    <div class="del-img"><img src="images/x.png" alt=""></div>
+                                </div>
+                                <!-- 图片循环单元 E ↑↑↑↑↑↑ -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="left">&nbsp;</div>
+                    <div class="right agreement">
+                        <input type="checkbox">我已阅读并同意<a href="agreeMent.html" target="_blank">《华人号用户注册协议》</a>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <div class="prev-btn">上一步</div>
+                    <div class="submit-btn">提交申请</div>
+                </div>
+                <div class="foot-info">
+                    © 2018 福建可比信息科技有限公司&nbsp;&nbsp;&nbsp;&nbsp;<a href="">公司简介</a> | <a href="">联系方法</a> | <a href="">客户服务</a> | <a href="">隐私政策</a> | <a href="">意见反馈</a>&nbsp;&nbsp;&nbsp;&nbsp;闽ICP备09051535号
+                </div>
+            </div>
+            <!-- 表单区域S -->
+        </div>
+    </div>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="jcrop/jquery.Jcrop.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/avatar.js"></script>
+</body>
+
+</html>
